@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+	<display-name>Cmpe473 Project</display-name>
+	
+	<filter>
+	    <filter-name>CharacterEncodingFilter</filter-name>
+	    <filter-class>com.boun.cmpe473.filter.CharacterEncodingFilter</filter-class>
+	</filter>
+	
+	<filter>
+	    <filter-name>ExceptionRedirectFilter</filter-name>
+	    <filter-class>com.boun.cmpe473.filter.ExceptionRedirectFilter</filter-class>
+	</filter>
+	
+	<filter>
+	    <filter-name>ConnectionFilter</filter-name>
+	    <filter-class>com.boun.cmpe473.filter.ConnectionFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	    <filter-name>CharacterEncodingFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+	    <filter-name>ExceptionRedirectFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+	    <filter-name>ConnectionFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>HomeServlet</servlet-name>
+		<servlet-class>com.boun.cmpe473.servlet.HomeServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>HistoryServlet</servlet-name>
+		<servlet-class>com.boun.cmpe473.servlet.HistoryServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.boun.cmpe473.servlet.LoginServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>com.boun.cmpe473.servlet.LogoutServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ProductServlet</servlet-name>
+		<servlet-class>com.boun.cmpe473.servlet.ProductServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SearchResultServlet</servlet-name>
+		<servlet-class>com.boun.cmpe473.servlet.SearchResultServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SellServlet</servlet-name>
+		<servlet-class>com.boun.cmpe473.servlet.SellServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SignupServlet</servlet-name>
+		<servlet-class>com.boun.cmpe473.servlet.SignupServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>HomeServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>HistoryServlet</servlet-name>
+		<url-pattern>/history</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ProductServlet</servlet-name>
+		<url-pattern>/product</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>SearchResultServlet</servlet-name>
+		<url-pattern>/search</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>SellServlet</servlet-name>
+		<url-pattern>/sell</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>SignupServlet</servlet-name>
+		<url-pattern>/signup</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/static/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/favicon.ico</url-pattern>
+	</servlet-mapping>
+</web-app>

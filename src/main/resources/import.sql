@@ -1,0 +1,55 @@
+-- Table CREATE scriptleri ve varsa initial INSERT scriptleri buraya yazilacak
+CREATE TABLE PRODUCT (
+	ID BIGINT NOT NULL AUTO_INCREMENT,
+	TITLE VARCHAR(255) NOT NULL,
+	INFO VARCHAR(1024) NOT NULL,
+	PRICE DOUBLE NOT NULL,
+	CREATE_DATE TIMESTAMP NOT NULL,
+	STATUS INT NOT NULL,
+	SELLER_ID BIGINT NOT NULL,
+	PICTURE VARCHAR(255) NOT NULL,
+	PRIMARY KEY (ID)
+);
+
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `first_name` varchar(45) NOT NULL,
+  `last_name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `pass` varchar(45) NOT NULL,
+  `regdate` date NOT NULL,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE NEGOTIATION (
+	ID BIGINT NOT NULL AUTO_INCREMENT,
+	PRODUCT_ID BIGINT NOT NULL,
+	USER_ID BIGINT NOT NULL,
+	STATUS INT NOT NULL,
+	START_DATE DATE NOT NULL,
+	PRIMARY KEY (ID)
+);
+
+CREATE TABLE NEGOTIATION_HISTORY (
+	ID BIGINT NOT NULL AUTO_INCREMENT,
+	NEGOTIATION_ID BIGINT NOT NULL,
+	SELLER_PRICE DOUBLE,
+	BUYER_PRICE DOUBLE,
+	OP_DATE DATE NOT NULL,
+	PRIMARY KEY(ID)
+);
+
+-- password is '123456'
+insert into users (id, first_name, last_name, email, pass, regdate) VALUES (1,'Serdar','Kuzucu','test@gmail.com','e10adc3949ba59abbe56e057f20f883e',CURDATE());
+
+alter table USERS MODIFY ID BIGINT;
+
+alter table PRODUCT add constraint FK_PRODUCT_SELLER_ID foreign key(SELLER_ID) REFERENCES USERS(ID);
+alter table NEGOTIATION_HISTORY add constraint FK_NEG_NEG_ID foreign key(NEGOTIATION_ID) REFERENCES NEGOTIATION(ID);
+alter table NEGOTIATION add constraint FK_NEG_PRD_ID foreign key(PRODUCT_ID) REFERENCES PRODUCT(ID);
+alter table NEGOTIATION add constraint FK_NEG_USER_ID foreign key(USER_ID) REFERENCES USERS(ID);
+
+
+SHOW ENGINE INNODB STATUS;
+
+
